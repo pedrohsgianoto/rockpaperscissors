@@ -11,13 +11,11 @@
             <input type="text" id="userChoice" class="userChoice"><br>
 
             <br><p class="outcome"></p>
-            <button onclick="playGame()">Play</button>
+            <button id="playButton" onclick="playGame()">Play</button>
             <button id="resetButton" onclick="resetGame()">Reset Game</button>
 
-            <br><p id="outcome"></p>
             <p id="result"></p>
             <p id="rounds"></p>
-            <p id="roundFinal"></p>
 
     <script>
         let rounds = 0;
@@ -79,10 +77,12 @@
 	  document.body.appendChild(resetButton);
 	  }*/
     
-        document.getElementById("resetButton").onclick = resetGame;
+        
         
         function resetGame() {
         rounds = 0;
+        playerWin = 0;
+        compWin = 0;
         }
 
         function playGame(){
@@ -95,8 +95,9 @@
             resultElement.textContent = "";
         } else if (rounds >= 6) {
             resultElement.textContent = "Game over. Reset the game";
+            playButton.disabled = true;
         }
-         }
+        }
     
         
     </script>
