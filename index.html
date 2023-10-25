@@ -68,21 +68,13 @@
                 return roundResult; 
         } 
     }
-        
-     /*function setGameOver() {
-	  userChoice.disabled = true;
-	  playGame.disabled = true;
-	  resetButton = document.createElement('button');
-	  resetButton.textContent = 'Start new game';
-	  document.body.appendChild(resetButton);
-	  }*/
-    
-        
-        
+         
         function resetGame() {
         rounds = 0;
         playerWin = 0;
         compWin = 0;
+        playButton.disabled = false;
+        result.textContent = '';
         }
 
         function playGame(){
@@ -90,12 +82,10 @@
         const resultElement = document.getElementById("result");
         const result = playRockPaperScissors(userChoice);
         resultElement.textContent = result;
-        //Added this below to change the text that gives the results accordingly.
-        if (rounds >= 7) {
-            resultElement.textContent = "";
-        } else if (rounds >= 6) {
-            resultElement.textContent = "Game over. Reset the game";
-            playButton.disabled = true;
+        //Added this below to change the text since is a 5 rounds game.
+         if (rounds >= 6) {
+        resultElement.textContent = "Game over. Reset the game";
+        playButton.disabled = true;
         }
         }
     
